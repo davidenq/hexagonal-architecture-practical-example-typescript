@@ -1,0 +1,30 @@
+{
+  "security.workspace.trust.untrustedFiles": "open",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.idea": true,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "redhat.telemetry.enabled": false,
+  "explorer.confirmDelete": false,
+  "terminal.integrated.fontFamily": "monospace",
+  "editor.mouseWheelZoom": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modifications",
+  "editor.formatOnType": true,
+  "hediet.vscode-drawio.codeLinkActivated": true,
+  "hediet.vscode-drawio.theme": "sketch",
+  "window.zoomLevel": 0,
+  "explorer.confirmDragAndDrop": false,
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange",
+  "editor.fontSize": 10,
+  "javascript.format.insertSpaceAfterConstructor": true,
+  "javascript.format.semicolons": "insert",
+  "typescript.format.semicolons": "insert"
+}
