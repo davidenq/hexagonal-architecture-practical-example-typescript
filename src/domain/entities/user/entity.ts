@@ -1,11 +1,11 @@
 import { IUserRules } from "./rules";
 
-export interface IEntityUser {
+export interface IUserEntity {
   get email(): string;
   get password(): string;
 };
 
-export class Entity implements IEntityUser {
+export class UserEntity implements IUserEntity {
 
   private _email: string;
   private _password: string;

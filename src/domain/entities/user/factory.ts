@@ -1,11 +1,11 @@
-import { Entity, IEntityUser } from "./entity";
+import { UserEntity, IUserEntity } from "./entity";
 import { UserRules } from "./rules";
 
 export class UserFactory {
 
-  public createUser(email: string, password: string): IEntityUser {
+  public createUser(email: string, password: string): IUserEntity {
 
     let rules = new UserRules();
-    return new Entity(email, password, rules);
+    return new UserEntity(email, password, rules);
   }
 }
