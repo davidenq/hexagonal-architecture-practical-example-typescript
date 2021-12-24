@@ -1,10 +1,10 @@
-export interface IClientRules {
+export interface IUserRules {
   checkEmptyValues(kind: string, value: string): void;
   checkEmail(value: string): void;
   checkPassword(value: string): void;
 }
 
-export class ClientRules implements IClientRules {
+export class UserRules implements IUserRules {
 
   public checkEmptyValues(kind: string, value: string) {
     if (value === "") {

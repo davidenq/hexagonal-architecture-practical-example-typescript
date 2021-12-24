@@ -1,6 +1,6 @@
 import { describe } from 'mocha';
 import { expect } from 'chai';
-import { ClientRules } from './rules';
+import { UserRules } from './rules';
 
 describe('Email validation', () => {
 
@@ -8,7 +8,7 @@ describe('Email validation', () => {
     it('throw error with message "must provide a valid email"', () => {
       const actual = 'must provide a valid email';
       expect(() => {
-        let rules = new ClientRules();
+        let rules = new UserRules();
         rules.checkEmail("david.nunez.dev");
       }).to.throw(actual);
     });
@@ -18,7 +18,7 @@ describe('Email validation', () => {
     it('throw error with message "email is required"', () => {
       const actual = 'email is required';
       expect(() => {
-        let rules = new ClientRules();
+        let rules = new UserRules();
         rules.checkEmptyValues("email", "");
       }).to.throw(actual);
     });
@@ -33,7 +33,7 @@ describe('Password validation', () => {
     it('throw error with message "must provide a password with minimun 12 characters"', () => {
       const actual = 'must provide a password with minimun 12 characters';
       expect(() => {
-        let rules = new ClientRules();
+        let rules = new UserRules();
         rules.checkPassword("password");
       }).to.throw(actual);
     });
@@ -44,7 +44,7 @@ describe('Password validation', () => {
       const actual = 'password is required';
       expect(() => {
 
-        let rules = new ClientRules();
+        let rules = new UserRules();
         rules.checkEmptyValues("password", "");
       }).to.throw(actual);
     });

@@ -1,17 +1,17 @@
-import { IClientRules } from "./rules";
+import { IUserRules } from "./rules";
 
-export interface IEntityClient {
+export interface IEntityUser {
   get email(): string;
   get password(): string;
 };
 
-export class Entity implements IEntityClient {
+export class Entity implements IEntityUser {
 
   private _email: string;
   private _password: string;
-  private _rules: IClientRules;
+  private _rules: IUserRules;
 
-  constructor(email: string, password: string, rules: IClientRules) {
+  constructor(email: string, password: string, rules: IUserRules) {
     this._email = email;
     this._password = password;
     this._rules = rules;
