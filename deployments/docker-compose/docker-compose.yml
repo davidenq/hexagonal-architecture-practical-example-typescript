@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mongo:
+    container_name: rootstack-challenge-mongo
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    expose:
+      - '27017'
+    volumes:
+      - mongo_rootstack_store:/data/db
+      - /etc/localtime:/etc/localtime
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: root_password
+
+volumes:
+  mongo_rootstack_store:
+networks:
+  main:
+    driver: bridge
+  

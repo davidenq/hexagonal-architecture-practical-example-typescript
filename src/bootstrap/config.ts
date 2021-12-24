@@ -7,6 +7,7 @@ export type apiService = {
   };
 };
 export type dbService = {
+  protocol: string,
   host: string,
   port: string,
   dbName: string,
@@ -38,6 +39,7 @@ export class AppConfig implements IAppConfig {
       }
     };
     this._dbService = {
+      protocol: process.env['DB_PROTOCOL'],
       host: process.env['DB_HOST'],
       port: process.env['DB_PORT'],
       dbName: process.env['DB_NAME'],

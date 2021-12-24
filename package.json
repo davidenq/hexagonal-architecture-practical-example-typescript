@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon",
     "test:unit": "mocha -r ts-node/register src/**/*.test.ts src/domain/**/*.test.ts src/infrastructure/**/*.test.ts",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "migrate:mongo": "ts-node -r dotenv/config ./src/infrastructure/database/migration.ts"
   },
   "husky": {
     "hooks": {
@@ -36,6 +37,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "axios": "^0.24.0"
+    "axios": "^0.24.0",
+    "mongodb": "^4.2.2"
   }
 }
