@@ -4,4 +4,4 @@ dev:
 	npm run dev
 
 unit-test:
-	npm run unit-test
+	npm run test:unit
