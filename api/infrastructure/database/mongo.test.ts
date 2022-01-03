@@ -25,10 +25,8 @@ describe('Check mongo connection', () => {
         "created_at": "2020-10-21T20:21:55.000000Z",
         "updated_at": "2020-10-21T20:21:55.000000Z"
       };
-      const outcome = operations.insert('jobs', job);
-      const result = await operations.find("jobs");
-      console.log(outcome);
-      console.log(result);
+      //const outcome = operations.insert('jobs', job);
+      //const result = await operations.find("jobs");
     }).to.throw(actual);
   });
 });

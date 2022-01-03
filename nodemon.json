@@ -4,9 +4,9 @@
   ],
   "ext": "ts,json",
   "ignore": [
-    "src/**/*.spec.ts",
-    "src/infrastructure/database/migration.ts",
+    "api/**/*.spec.ts",
+    "api/infrastructure/database/migration.ts",
     "node_modules"
   ],
-  "exec": "NODE_ENV=development ts-node -r dotenv/config ./src/bootstrap/index.ts"
+  "exec": "NODE_ENV=development ts-node -r dotenv/config ./api/bootstrap/index.ts"
 }

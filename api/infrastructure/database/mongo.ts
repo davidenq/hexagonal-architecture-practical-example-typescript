@@ -30,7 +30,6 @@ export class MongoConnDb {
   }
 
   public async connection(): Promise<Db> {
-    console.log(this._connectionString);
     this._client = await MongoClient.connect(this._connectionString);
     this.db = this._client.db(this._config.dbService.dbName);
 

@@ -6,6 +6,7 @@ export type apiService = {
     user: string;
   };
 };
+
 export type dbService = {
   protocol: string,
   host: string,
@@ -14,6 +15,11 @@ export type dbService = {
   username: string,
   password: string;
 };
+
+export type server = {
+  port: string;
+};
+
 export type googleMapsService = {};
 
 export interface IAppConfig {
@@ -26,17 +32,21 @@ export class AppConfig implements IAppConfig {
 
   private _apiService: apiService;
   private _dbService: dbService;
+  private _server: server;
   private _googleMapsService: googleMapsService;
 
   constructor() {
     this.validateEnvs();
     this._apiService = {
-      host: process.env['ROOTSTACK_HOST'],
+      host: process.env['AUTHSERVICE_HOST'],
       endpoints: {
-        job: process.env['ROOTSTACK_JOB_APIENDPOINT'],
-        auth: process.env['ROOSTACK_AUTH_APIENDPOINT'],
-        user: process.env['ROOSTACK_USER_APIENDPOINT']
+        job: process.env['AUTHSERVICE_JOB_APIENDPOINT'],
+        auth: process.env['AUTHSERVICE_AUTH_APIENDPOINT'],
+        user: process.env['AUTHSERVICE_USER_APIENDPOINT']
       }
+    };
+    this._server = {
+      port: process.env['SERVER_PORT']
     };
     this._dbService = {
       protocol: process.env['DB_PROTOCOL'],
@@ -56,20 +66,25 @@ export class AppConfig implements IAppConfig {
     return this._dbService;
   }
 
+  get server(): server {
+    return this._server;
+  }
+
   get googleMapsService(): googleMapsService {
     return this._googleMapsService;
   }
 
   private validateEnvs() {
-    this.checkEmptyValue("ROOTSTACK_HOST", process.env['ROOTSTACK_HOST']);
-    this.checkEmptyValue("ROOTSTACK_JOB_APIENDPOINT", process.env['ROOTSTACK_JOB_APIENDPOINT']);
-    this.checkEmptyValue("ROOSTACK_AUTH_APIENDPOINT", process.env['ROOSTACK_AUTH_APIENDPOINT']);
-    this.checkEmptyValue("ROOSTACK_USER_APIENDPOINT", process.env['ROOSTACK_USER_APIENDPOINT']);
+    this.checkEmptyValue("AUTHSERVICE_HOST", process.env['AUTHSERVICE_HOST']);
+    this.checkEmptyValue("AUTHSERVICE_JOB_APIENDPOINT", process.env['AUTHSERVICE_JOB_APIENDPOINT']);
+    this.checkEmptyValue("AUTHSERVICE_AUTH_APIENDPOINT", process.env['AUTHSERVICE_AUTH_APIENDPOINT']);
+    this.checkEmptyValue("AUTHSERVICE_USER_APIENDPOINT", process.env['AUTHSERVICE_USER_APIENDPOINT']);
     this.checkEmptyValue("DB_HOST", process.env['DB_HOST']);
     this.checkEmptyValue("DB_PORT", process.env['DB_PORT']);
     this.checkEmptyValue("DB_NAME", process.env['DB_NAME']);
     this.checkEmptyValue("DB_USERNAME", process.env['DB_USERNAME']);
     this.checkEmptyValue("DB_PASSWORD", process.env['DB_PASSWORD']);
+    this.checkEmptyValue("SERVER_PORT", process.env['SERVER_PORT']);
   }
 
   private checkEmptyValue(kind: string, value: string): void {

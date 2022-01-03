@@ -30,7 +30,6 @@ export class UserRules implements IUserRules {
   }
 
   private passwordCondition(password: string) {
-    console.log(password.length);
     if (password.length < 12) {
       return false;
     }

@@ -23,7 +23,7 @@
   "explorer.confirmDragAndDrop": false,
   "editor.tabSize": 2,
   "files.autoSave": "onFocusChange",
-  "editor.fontSize": 10,
+  "editor.fontSize": 14,
   "javascript.format.insertSpaceAfterConstructor": true,
   "javascript.format.semicolons": "insert",
   "typescript.format.semicolons": "insert"

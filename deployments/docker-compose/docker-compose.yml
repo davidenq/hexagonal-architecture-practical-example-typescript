@@ -1,7 +1,30 @@
 version: '3'
 services:
+  ui:
+    container_name: hexagonal-architecture-practical-example-typescript-ui
+    privileged: true
+    build:
+      context: ../../
+      dockerfile: ./builders/docker/ui/Dockerfile
+    env_file: ../../.env
+    ports:
+      - '3000:3000'
+    networks:
+      - main
+  api:
+    container_name: hexagonal-architecture-practical-example-typescript-api
+    privileged: true
+    build:
+      context: ../../
+      dockerfile: ./builders/docker/api/Dockerfile
+    env_file:
+      - ../../.env
+    ports:
+      - '4000:8080'
+    networks:
+      - main
   mongo:
-    container_name: rootstack-challenge-mongo
+    container_name: hexagonal-architecture-practical-example-typescript-mongo
     image: mongo
     restart: always
     ports:
@@ -9,14 +32,16 @@ services:
     expose:
       - '27017'
     volumes:
-      - mongo_rootstack_store:/data/db
+      - mongo_hexagonal-architecture-practical-example-typescript_store:/data/db
       - /etc/localtime:/etc/localtime
     environment:
       MONGO_INITDB_ROOT_USERNAME: user
       MONGO_INITDB_ROOT_PASSWORD: root_password
+    networks:
+      - main
 
 volumes:
-  mongo_rootstack_store:
+  mongo_hexagonal-architecture-practical-example-typescript_store:
 networks:
   main:
     driver: bridge

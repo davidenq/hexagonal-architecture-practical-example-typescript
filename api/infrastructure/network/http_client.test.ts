@@ -12,7 +12,6 @@ describe('Check configuration loader', () => {
       const httpClientFactory = new HttpClientFactory();
       const httpClient = httpClientFactory.createHttpClient(appConfig);
       const outcome = await httpClient.request("get", "job", {});
-      console.log(outcome);
     }).to.throw(actual);
   });
 });

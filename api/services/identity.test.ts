@@ -21,7 +21,7 @@ describe('Check mongo connection', () => {
         email: "tvandervort@example.nets",
         password: "password"
       };
-      const identityService = new IdentityService(user, httpClient, operations);
+      const identityService = new IdentityService(httpClient, operations);
 
     }).to.throw(actual);
   });
